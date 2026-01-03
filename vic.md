@@ -60,7 +60,10 @@ columnar transposition
 diagonal transposition part 1: define shape
 diagonal transposition part 2: fill
 diagonal transposition part 3: extract
+^
+done all that now! 
 
+TODO: 
 
-
-
+straddling checkerboard
+put it all together!
