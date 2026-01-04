@@ -30,5 +30,8 @@ test('Key Generator', () => {
     expect(kg.lineQ).toBe('0668005552551');
     expect(kg.lineR).toBe('758838');
     expect(kg.lineS).toBe('5961328470');
+    expect(kg.getColumnarKey()).toBe('0668005552551');
+    expect(kg.getDiagonalKey()).toBe('758838');
+    expect(kg.getStraddlingCheckerboardKey()).toBe('5961328470');
 })
 

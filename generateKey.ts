@@ -78,6 +78,10 @@ class KeyGenerator {
         this.lineS = getSequence(this.lineP); // key to straddling checkerboard
 
     }
+
+    getColumnarKey = () => this.lineQ;
+    getDiagonalKey = () => this.lineR;
+    getStraddlingCheckerboardKey = () => this.lineS;
 }
 
 export const encode = (key:string, aide:string, text:string) => {

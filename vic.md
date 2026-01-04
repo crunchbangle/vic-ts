@@ -67,4 +67,12 @@ straddling checkerboard
 
 TODO: 
 
-put it all together!
+- straddling checkerboard encode/decode methods
+- make a KnownData interface for pin/date/phrase?
+- grouping
+- keygroup insertion
+- keygroup extraction
+- full encryption
+- full decryption
+
+
