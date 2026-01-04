@@ -63,7 +63,8 @@ diagonal transposition part 3: extract
 ^
 done all that now! 
 
+straddling checkerboard
+
 TODO: 
 
-straddling checkerboard
 put it all together!

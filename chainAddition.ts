@@ -2,11 +2,12 @@ import { noCarryAddDigit } from "./noCarryAddition"
 
 export const chainAdd = (s:string, n:number):string => {
     let i=0;
-    let j=s.length-1;
+    let t = '';
     while(i<n){
-        s += noCarryAddDigit(s[i], s[j]);
+        const r = noCarryAddDigit(s[i], s[i+1]);
+        s += r;
+        t += r;
         i++;
-        j++;
     }
-    return s;
+    return t;
 }

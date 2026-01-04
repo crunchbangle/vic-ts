@@ -1,11 +1,26 @@
 
-
-export const getSequencePositions = (s:string):number[] => {
-    return s.split('')
+// this is the one we use to do stuff in the right order
+export const getSequencePositions = (s:string, zeroIsTen:boolean=true):number[] => {
+    return (zeroIsTen ? s.replace(/0/g,'O') : s) // sort zero last!
+        .split('')
         .map((char, position) => ({char, position})) // original index
         .sort((a, b) => a.char>b.char?1:a.char<b.char?-1:
                 a.position>b.position?1:a.position<b.position?-1:0) // sort by char
         .map(x => x.position); // sorted positions
+}
+
+// this is the one we use to display the sequencing
+export const getSequence = (s:string):string => {
+    return s.replace(/0/g,'O') // sort zero last!
+        .split('')
+        .map((char, position) => ({char, position})) // original index
+        .sort((a, b) => a.char>b.char?1:a.char<b.char?-1:
+                a.position>b.position?1:a.position<b.position?-1:0) // sort by char
+        .map((x, j) => ({...x, seq:j+1})) // get new index
+        .sort((a, b) => // sort back into original position
+                a.position>b.position?1:a.position<b.position?-1:0)
+        .map(x => x.seq % 10)
+        .join(''); // and return the sequence values
 }
 
 export const columnarTransposeRows = (key:string, rows:string[]):string[] => {
@@ -46,7 +61,7 @@ export const reverseColumnarTransposeRows = (key:string, rows:string[]):string[]
 
     const seq0 = getSequencePositions(key);
     // need to sequence the sequence to get the targets going back...
-    const seq = getSequencePositions(seq0.join(''));
+    const seq = getSequencePositions(seq0.join(''), false);
 
     const result = [];
     for(let i=0; i<rows[0].length; i++){
