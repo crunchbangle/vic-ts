@@ -1,10 +1,4 @@
-import { getSequencePositions } from "./columnarTransposition";
-
-export const reGroup = (text:string):string => {
-    return text.replace(/\s/g, '')
-        .replace(/(\S{20})(?=\S)/g, '$1\n')
-        .replace(/(\S{5})(?=\S)/g, '$1 ') + '\n';
-}
+import { reGroup } from "./grouping";
 
 class StraddlingCheckerboard {
     key: string[];
